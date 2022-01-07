@@ -3,4 +3,4 @@ node_modules
 /netlify/functions/server/build
 /public/build
 /.netlify
-/app/tailwind.css
+/app/index.css

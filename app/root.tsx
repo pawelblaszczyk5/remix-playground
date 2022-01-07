@@ -1,4 +1,4 @@
-import type { MetaFunction } from 'remix';
+import type { MetaFunction, LinksFunction } from 'remix';
 
 import {
   Links,
@@ -8,31 +8,29 @@ import {
   Scripts,
   ScrollRestoration,
 } from 'remix';
-import styles from './tailwind.css';
+import styles from './index.css';
 
-export function links() {
-  return [{ rel: 'stylesheet', href: styles }];
-}
+export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }];
 
 export const meta: MetaFunction = () => {
   return { title: 'My Remix App' };
 };
 
-export default function App() {
-  return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body className="bg-blue-900 text-white">
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        {process.env.NODE_ENV === 'development' && <LiveReload />}
-      </body>
-    </html>
-  );
-}
+const App = () => (
+  <html lang="en">
+    <head>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <Meta />
+      <Links />
+    </head>
+    <body className="bg-blue-900 text-white flex justify-center items-center h-screen">
+      <Outlet />
+      <ScrollRestoration />
+      <Scripts />
+      {process.env.NODE_ENV === 'development' && <LiveReload />}
+    </body>
+  </html>
+);
+
+export default App;

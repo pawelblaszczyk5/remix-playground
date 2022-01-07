@@ -28,6 +28,7 @@
         "html": true
       }
     ],
-    "newline-after-var": 2
+    "newline-after-var": 2,
+    "@typescript-eslint/consistent-type-imports": 2
   }
 }
